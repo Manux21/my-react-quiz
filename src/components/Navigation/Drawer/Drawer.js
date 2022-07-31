@@ -1,18 +1,33 @@
-import React, {Component} from 'react';
+import React, {Component} from 'react'
 import classes from './Drawer.module.css'
-import Backdrop from "../../UI/Backdrop/Backdrop";
+import Backdrop from "../../UI/Backdrop/Backdrop"
+import {Link} from 'react-router-dom'
 
 const links = [
-  1, 2, 3
+  {to: '/', label: 'Список'},
+  {to: '/auth', label: 'Авторизация'},
+  {to: '/quiz-creator', label: 'Создать тест'}
 ]
 
+
 class Drawer extends Component {
+
+  clickHandler = () => {
+    this.props.onClose()
+  }
+
 
   renderLinks(){
     return links.map((link, index) => {
       return(
         <li key={index}>
-          <a>Link {link}</a>
+          <Link
+            to={link.to}
+            activeClasseName={classes.active}
+            onClick={this.clickHandler}
+          >
+            {link.label}
+          </Link>
         </li>
       )
     })
