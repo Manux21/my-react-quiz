@@ -4,8 +4,16 @@ import ActiveQuiz from '../../components/ActiveQuiz/ActiveQuiz'
 import FinishedQuiz from '../../components/FinishedQuiz/FinishedQuiz'
 import axios from '../../ axios/axios-quiz'
 import Loader from '../../components/UI/Loader/Loader'
-import { useLocation } from "react-router-dom";
 import QuizID from '../../components/QuizID/QuizID'
+import { useParams } from "react-router-dom";
+
+
+function withParams(Component) {
+  return props => <Component {...props} params={useParams()} />;
+}
+
+
+
 
 class Quiz extends Component {
   state = {
@@ -14,7 +22,8 @@ class Quiz extends Component {
     activeQuestion: 0,
     answerState: null,
     quiz: [],
-    loading: true
+    loading: true,
+    id: ''
   }
 
   onAnswerClickHandler = answerId => {
@@ -77,12 +86,13 @@ class Quiz extends Component {
 
 
 
-
-
   async componentDidMount() {
 
+    let { id } = this.props.params;
+
+
     try {
-      const response = await axios.get(`/quizes/${this.props.match.params.id}.json`)
+      const response = await axios.get(`/quizes/${id}.json`)
       const quiz = response.data
 
       this.setState({
@@ -127,4 +137,4 @@ class Quiz extends Component {
 }
 
 
-export default Quiz
+export default withParams(Quiz)
