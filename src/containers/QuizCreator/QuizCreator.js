@@ -5,8 +5,7 @@ import {createControl, validate, validateForm} from '../../form/formFramework'
 import Input from '../../components/UI/Input/Input'
 import Auxillary from "../../hoc/Auxillary/Auxillary";
 import Select from "../../components/UI/Select/Select"
-
-
+import axios from '../../ axios/axios-quiz'
 
 
 
@@ -73,10 +72,22 @@ export default class QuizCreator extends Component {
     })
   }
 
-  createQuizHandler = event => {
+  createQuizHandler = async event => {
     event.preventDefault()
 
+    try {
+      await axios.post('/quizes.json', this.state.quiz)
 
+      this.setState({
+        quiz: [],
+        isFormValid: false,
+        rightAnswerId: 1,
+        formControls: createFormControls()
+      })
+
+    } catch (e) {
+      console.log(e)
+    }
   }
 
   changeHandler = (value, controlName) => {
@@ -163,11 +174,8 @@ export default class QuizCreator extends Component {
             >
               Создать тест
             </Button>
-
-
           </form>
         </div>
-
       </div>
     )
   }
