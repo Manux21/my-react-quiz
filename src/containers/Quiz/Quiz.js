@@ -13,8 +13,6 @@ function withParams(Component) {
 }
 
 
-
-
 class Quiz extends Component {
   state = {
     results: {},

@@ -39,8 +39,6 @@ export default class QuizList extends Component {
         quizes.push({
           id: key,
           name: `Тест №${index + 1}`
-
-
         })
       })
 

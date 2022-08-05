@@ -59,7 +59,7 @@ export default class QuizCreator extends Component {
         {text: option1.value, id: option1.id},
         {text: option2.value, id: option2.id},
         {text: option3.value, id: option3.id},
-        {text: option1.value, id: option4.id}
+        {text: option4.value, id: option4.id}
       ]
     }
     quiz.push(questionItem)
