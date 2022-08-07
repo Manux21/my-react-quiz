@@ -2,7 +2,7 @@ import React, {Component} from 'react'
 import classes from './Quiz.module.css'
 import ActiveQuiz from '../../components/ActiveQuiz/ActiveQuiz'
 import FinishedQuiz from '../../components/FinishedQuiz/FinishedQuiz'
-import axios from '../../ axios/axios-quiz'
+import axios from '../../axios/axios-quiz'
 import Loader from '../../components/UI/Loader/Loader'
 import QuizID from '../../components/QuizID/QuizID'
 import { useParams } from "react-router-dom";

@@ -5,7 +5,7 @@ import {createControl, validate, validateForm} from '../../form/formFramework'
 import Input from '../../components/UI/Input/Input'
 import Auxillary from "../../hoc/Auxillary/Auxillary";
 import Select from "../../components/UI/Select/Select"
-import axios from '../../ axios/axios-quiz'
+import axios from '../../axios/axios-quiz'
 
 
 
