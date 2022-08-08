@@ -18,11 +18,6 @@ function withParams(Component) {
 class Quiz extends Component {
 
 
-
-
-
-
-
   componentDidMount() {
     let { id } = this.props.params;
     this.props.fetchQuizById(id)
